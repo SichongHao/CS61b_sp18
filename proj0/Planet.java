@@ -4,7 +4,7 @@ public class Planet{
 	public double yyPos;
 	public double xxVel;
 	public double yyVel;
-	double mass;
+	public double mass;
 	public String imgFileName;
 
 	/* Constructor 1 */
