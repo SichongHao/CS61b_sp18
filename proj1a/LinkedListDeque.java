@@ -1,8 +1,8 @@
 public class LinkedListDeque<T> {
     private class Node {
-        public T item;
-        public Node prev;
-        public Node next;
+        private T item;
+        private Node prev;
+        private Node next;
 
         public Node(Node p, T i, Node n) {
             item = i;
@@ -37,7 +37,6 @@ public class LinkedListDeque<T> {
             size = 1;
         } else {
             sentinel.next = new Node(sentinel, item, sentinel.next);
-//            sentinel.prev = sentinel.next.next;
             sentinel.next.next.prev = sentinel.next;
             size += 1;
         }
@@ -57,13 +56,13 @@ public class LinkedListDeque<T> {
     }
 
     public T removeFirst() {
-        if (size == 0) {
+        if (isEmpty()) {
             return null;
         }
         Node del = sentinel.next;
         T x = del.item;
         sentinel.next = del.next;
-        sentinel.prev.prev = sentinel;
+        sentinel.next.prev = sentinel;
         del.prev = null;
         del.next = null;
         del.item = null;
@@ -72,13 +71,13 @@ public class LinkedListDeque<T> {
     }
 
     public T removeLast() {
-        if (size == 0) {
+        if (isEmpty()) {
             return null;
         }
         Node del = sentinel.prev;
         T x = del.item;
         sentinel.prev = del.prev;
-        sentinel.next.next = sentinel;
+        sentinel.prev.next = sentinel;
         del.item = null;
         del.prev = null;
         del.next = null;
@@ -87,7 +86,7 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
-        if (index >= size) {
+        if (index >= size || index < 0) {
             return null;
         }
         int i = 0;
@@ -100,7 +99,7 @@ public class LinkedListDeque<T> {
     }
 
     public T getRecursive(int index) {
-        if (index >= size) {
+        if (index >= size || index < 0) {
             return null;
         } else if (index == 0) {
             return sentinel.next.item;
@@ -111,7 +110,9 @@ public class LinkedListDeque<T> {
 
     }
 
-    public int size() { return size; }
+    public int size() {
+        return size;
+    }
 
     public boolean isEmpty() {
         return size == 0;
