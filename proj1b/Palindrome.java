@@ -16,11 +16,7 @@ public class Palindrome {
         for (int i = 0; i < word.length(); i++) {
             actual += dq.removeLast();
         }
-        if (actual.equals(word)) {
-            return true;
-        } else {
-            return false;
-        }
+        return actual.equals(word);
     }
 
 //    /* recursive version */
@@ -28,7 +24,7 @@ public class Palindrome {
 //        return isPalindromeHelper(word, 0);
 //    }
 //
-//    public boolean isPalindromeHelper(String word, int index) {
+//    private boolean isPalindromeHelper(String word, int index) {
 //        int reverseIndex = word.length() - index - 1;
 //        if (reverseIndex <= index) {
 //            return true;
@@ -45,7 +41,7 @@ public class Palindrome {
         return isPalindromeHelper(word, cc, 0);
     }
 
-    public boolean isPalindromeHelper(String word, CharacterComparator cc, int index) {
+    private boolean isPalindromeHelper(String word, CharacterComparator cc, int index) {
         if (word.length() == 0) {
             return true;
         }
