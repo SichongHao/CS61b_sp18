@@ -21,13 +21,13 @@ public class TestArrayDequeGold {
                 ads.addFirst(i);
                 failureMessage = failureMessage + "addFirst(" + i + ")\n";
             } else if (numberBetweenZeroAndOne > 0.25) {
-                Integer actualStudent = sad.removeFirst();      // 实际值
-                Integer expectedSolution = ads.removeFirst();   // 期望值
+                Integer actualStudent = sad.removeFirst();      
+                Integer expectedSolution = ads.removeFirst();   
                 failureMessage = failureMessage + "removeFirst()\n";
                 assertEquals(failureMessage, expectedSolution, actualStudent);
             } else {
-                Integer actualStudent = sad.removeLast();      // 实际值
-                Integer expectedSolution = ads.removeLast();   // 期望值
+                Integer actualStudent = sad.removeLast();     
+                Integer expectedSolution = ads.removeLast();   
                 failureMessage = failureMessage + "removeLast()\n";
                 assertEquals(failureMessage, expectedSolution, actualStudent);
             }
