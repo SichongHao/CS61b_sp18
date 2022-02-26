@@ -73,11 +73,11 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         return oldestItem;
     }
 
-    private int plusOne(int Index) {
-        if (Index == capacity - 1) {
+    private int plusOne(int index) {
+        if (index == capacity - 1) {
             return 0;
         } else {
-            return Index + 1;
+            return index + 1;
         }
 
     }
@@ -85,14 +85,15 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     // TODO: When you get to part 5, implement the needed code to support iteration.
     @Override
     public Iterator<T> iterator() {
-        return new bufferIterator();
+        return new BufferIterator();
     }
 
-    private class bufferIterator implements Iterator<T> {
+    private class BufferIterator implements Iterator<T> {
         private int wizPos;
+
         private int num;
 
-        public bufferIterator() {
+        public BufferIterator() {
             wizPos = first;
             num = 0;
         }
