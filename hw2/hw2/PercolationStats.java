@@ -16,10 +16,9 @@ public class PercolationStats {
             throw new IllegalArgumentException();
         }
 
-        Percolation mtSites = pf.make(N);
-
         for (int mt = 0; mt < T; mt++) {
 
+            Percolation mtSites = pf.make(N);
             while (!mtSites.percolates()) {
                 int chooseRow = StdRandom.uniform(N);
                 int chooseCol = StdRandom.uniform(N);
@@ -55,4 +54,7 @@ public class PercolationStats {
         return mean() + 1.96 * stddev() / Math.sqrt(mtTimes);
     }
 
+    public static void main(String[] args) {
+        PercolationFactory pf = new PercolationFactory();
+    }
 }

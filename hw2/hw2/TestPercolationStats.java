@@ -8,7 +8,7 @@ public class TestPercolationStats {
     @Test
     public void testMt() {
         PercolationFactory pf = new PercolationFactory();
-        PercolationStats testStats = new PercolationStats(20, 10, pf);
+        PercolationStats testStats = new PercolationStats(20, 100, pf);
         System.out.println(testStats.mean());
         System.out.println(testStats.stddev());
         System.out.println(testStats.confidenceLow());

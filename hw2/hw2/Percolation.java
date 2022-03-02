@@ -41,8 +41,8 @@ public class Percolation {
         }
 
         flagOpen = new boolean[N][N];
-        for(int i = 0; i < N; i++) {
-            for(int j = 0; j < N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 flagOpen[i][j] = false;
             }
         }
@@ -89,7 +89,7 @@ public class Percolation {
     // is the site (row, col) full?
     public boolean isFull(int row, int col) {
         validateRange(row, col);
-        if (!isOpen(row, col)){
+        if (!isOpen(row, col)) {
             return false;
         }
         return sites2.connected(topSiteIndex, xyTo1D(row, col));
@@ -102,24 +102,22 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
+        if (girdNum == 1) {
+            return false;
+        }
         return sites.connected(topSiteIndex, bottomSiteIndex);
     }
 
-    private void validateRange(int row, int col){
+    private void validateRange(int row, int col) {
         if (row > girdNum - 1 || col > girdNum - 1 || row < 0 || col < 0) {
             throw new IndexOutOfBoundsException();
         }
     }
 
-//    // use for unit testing (not required)
-//    public static void main(String[] args) {
-//        Percolation testSites = new Percolation(5);
-//        testSites.open(3,4);
-//        testSites.open(2, 4);
-//        testSites.isOpen(2, 4);
-//        testSites.isOpen(1, 1);
-//        testSites.numberOfOpenSites();
-//    }
+    // use for unit testing (not required)
+    public static void main(String[] args) {
+        Percolation testSites = new Percolation(5);
+    }
 
 
 
