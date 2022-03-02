@@ -103,7 +103,7 @@ public class Percolation {
     // does the system percolate?
     public boolean percolates() {
         if (girdNum == 1) {
-            return false;
+            return isOpen(0, 0);
         }
         return sites.connected(topSiteIndex, bottomSiteIndex);
     }

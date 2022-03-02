@@ -20,6 +20,7 @@ public class TestPercolatoin {
 //        testSites.open(1, 2);
 //        testSites.open(4, 4);
 //        assertTrue(testSites.isFull(4, 4));
+        testSites.open(0, 0);
         assertTrue(testSites.percolates());
     }
 

@@ -9,12 +9,13 @@ public class PercolationStats {
 
     // perform T independent experiments on an N-by-N grid
     public PercolationStats(int N, int T, PercolationFactory pf) {
-        mtTimes = T;
-        thredsholdArr = new double[T];
 
         if (N <= 0 || T <= 0) {
             throw new IllegalArgumentException();
         }
+
+        mtTimes = T;
+        thredsholdArr = new double[T];
 
         for (int mt = 0; mt < T; mt++) {
 
@@ -54,7 +55,4 @@ public class PercolationStats {
         return mean() + 1.96 * stddev() / Math.sqrt(mtTimes);
     }
 
-    public static void main(String[] args) {
-        PercolationFactory pf = new PercolationFactory();
-    }
 }
