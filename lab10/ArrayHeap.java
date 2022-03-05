@@ -227,8 +227,8 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
                 break;
             }
         }
-        swim(changeIndex);
-        sink(changeIndex);
+//        swim(changeIndex);
+//        sink(changeIndex);
 
     }
 
